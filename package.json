@@ -1,0 +1,14 @@
+{
+  "name": "phototaggingappbackend",
+  "version": "1.0.0",
+  "description": "A ToP project seeking to emulate a \"Where's Waldo\" game where the user can click coordinates on an image to attempt to locate a list of characters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
