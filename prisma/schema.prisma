@@ -21,9 +21,10 @@ model Stage {
 }
 
 model Character {
-  id          Int    @id @default(autoincrement())
-  name        String
-  coordinates String
+  id           Int    @id @default(autoincrement())
+  name         String
+  x_coordinate Int
+  y_coordinate Int
 }
 
 model Score {
