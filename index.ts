@@ -1,7 +1,8 @@
-const express = require("express");
-const path = require("node:path");
-const cors = require("cors");
-require("dotenv").config();
+import express from "express";
+import path from "node:path";
+import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 

@@ -1103,16 +1103,19 @@ export namespace Prisma {
 
   export type StageMinAggregateOutputType = {
     id: number | null
+    name: string | null
     img_url: string | null
   }
 
   export type StageMaxAggregateOutputType = {
     id: number | null
+    name: string | null
     img_url: string | null
   }
 
   export type StageCountAggregateOutputType = {
     id: number
+    name: number
     img_url: number
     _all: number
   }
@@ -1128,16 +1131,19 @@ export namespace Prisma {
 
   export type StageMinAggregateInputType = {
     id?: true
+    name?: true
     img_url?: true
   }
 
   export type StageMaxAggregateInputType = {
     id?: true
+    name?: true
     img_url?: true
   }
 
   export type StageCountAggregateInputType = {
     id?: true
+    name?: true
     img_url?: true
     _all?: true
   }
@@ -1230,6 +1236,7 @@ export namespace Prisma {
 
   export type StageGroupByOutputType = {
     id: number
+    name: string
     img_url: string
     _count: StageCountAggregateOutputType | null
     _avg: StageAvgAggregateOutputType | null
@@ -1254,6 +1261,7 @@ export namespace Prisma {
 
   export type StageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     img_url?: boolean
     Score?: boolean | Stage$ScoreArgs<ExtArgs>
     _count?: boolean | StageCountOutputTypeDefaultArgs<ExtArgs>
@@ -1261,20 +1269,23 @@ export namespace Prisma {
 
   export type StageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     img_url?: boolean
   }, ExtArgs["result"]["stage"]>
 
   export type StageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     img_url?: boolean
   }, ExtArgs["result"]["stage"]>
 
   export type StageSelectScalar = {
     id?: boolean
+    name?: boolean
     img_url?: boolean
   }
 
-  export type StageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "img_url", ExtArgs["result"]["stage"]>
+  export type StageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "img_url", ExtArgs["result"]["stage"]>
   export type StageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Score?: boolean | Stage$ScoreArgs<ExtArgs>
     _count?: boolean | StageCountOutputTypeDefaultArgs<ExtArgs>
@@ -1289,6 +1300,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      name: string
       img_url: string
     }, ExtArgs["result"]["stage"]>
     composites: {}
@@ -1715,6 +1727,7 @@ export namespace Prisma {
    */
   interface StageFieldRefs {
     readonly id: FieldRef<"Stage", 'Int'>
+    readonly name: FieldRef<"Stage", 'String'>
     readonly img_url: FieldRef<"Stage", 'String'>
   }
     
@@ -2160,56 +2173,70 @@ export namespace Prisma {
 
   export type CharacterAvgAggregateOutputType = {
     id: number | null
+    x_coordinate: number | null
+    y_coordinate: number | null
   }
 
   export type CharacterSumAggregateOutputType = {
     id: number | null
+    x_coordinate: number | null
+    y_coordinate: number | null
   }
 
   export type CharacterMinAggregateOutputType = {
     id: number | null
     name: string | null
-    coordinates: string | null
+    x_coordinate: number | null
+    y_coordinate: number | null
   }
 
   export type CharacterMaxAggregateOutputType = {
     id: number | null
     name: string | null
-    coordinates: string | null
+    x_coordinate: number | null
+    y_coordinate: number | null
   }
 
   export type CharacterCountAggregateOutputType = {
     id: number
     name: number
-    coordinates: number
+    x_coordinate: number
+    y_coordinate: number
     _all: number
   }
 
 
   export type CharacterAvgAggregateInputType = {
     id?: true
+    x_coordinate?: true
+    y_coordinate?: true
   }
 
   export type CharacterSumAggregateInputType = {
     id?: true
+    x_coordinate?: true
+    y_coordinate?: true
   }
 
   export type CharacterMinAggregateInputType = {
     id?: true
     name?: true
-    coordinates?: true
+    x_coordinate?: true
+    y_coordinate?: true
   }
 
   export type CharacterMaxAggregateInputType = {
     id?: true
     name?: true
-    coordinates?: true
+    x_coordinate?: true
+    y_coordinate?: true
   }
 
   export type CharacterCountAggregateInputType = {
     id?: true
     name?: true
-    coordinates?: true
+    x_coordinate?: true
+    y_coordinate?: true
     _all?: true
   }
 
@@ -2302,7 +2329,8 @@ export namespace Prisma {
   export type CharacterGroupByOutputType = {
     id: number
     name: string
-    coordinates: string
+    x_coordinate: number
+    y_coordinate: number
     _count: CharacterCountAggregateOutputType | null
     _avg: CharacterAvgAggregateOutputType | null
     _sum: CharacterSumAggregateOutputType | null
@@ -2327,28 +2355,32 @@ export namespace Prisma {
   export type CharacterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    coordinates?: boolean
+    x_coordinate?: boolean
+    y_coordinate?: boolean
   }, ExtArgs["result"]["character"]>
 
   export type CharacterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    coordinates?: boolean
+    x_coordinate?: boolean
+    y_coordinate?: boolean
   }, ExtArgs["result"]["character"]>
 
   export type CharacterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    coordinates?: boolean
+    x_coordinate?: boolean
+    y_coordinate?: boolean
   }, ExtArgs["result"]["character"]>
 
   export type CharacterSelectScalar = {
     id?: boolean
     name?: boolean
-    coordinates?: boolean
+    x_coordinate?: boolean
+    y_coordinate?: boolean
   }
 
-  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "coordinates", ExtArgs["result"]["character"]>
+  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "x_coordinate" | "y_coordinate", ExtArgs["result"]["character"]>
 
   export type $CharacterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Character"
@@ -2356,7 +2388,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
-      coordinates: string
+      x_coordinate: number
+      y_coordinate: number
     }, ExtArgs["result"]["character"]>
     composites: {}
   }
@@ -2782,7 +2815,8 @@ export namespace Prisma {
   interface CharacterFieldRefs {
     readonly id: FieldRef<"Character", 'Int'>
     readonly name: FieldRef<"Character", 'String'>
-    readonly coordinates: FieldRef<"Character", 'String'>
+    readonly x_coordinate: FieldRef<"Character", 'Int'>
+    readonly y_coordinate: FieldRef<"Character", 'Int'>
   }
     
 
@@ -4248,6 +4282,7 @@ export namespace Prisma {
 
   export const StageScalarFieldEnum: {
     id: 'id',
+    name: 'name',
     img_url: 'img_url'
   };
 
@@ -4257,7 +4292,8 @@ export namespace Prisma {
   export const CharacterScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    coordinates: 'coordinates'
+    x_coordinate: 'x_coordinate',
+    y_coordinate: 'y_coordinate'
   };
 
   export type CharacterScalarFieldEnum = (typeof CharacterScalarFieldEnum)[keyof typeof CharacterScalarFieldEnum]
@@ -4358,12 +4394,14 @@ export namespace Prisma {
     OR?: StageWhereInput[]
     NOT?: StageWhereInput | StageWhereInput[]
     id?: IntFilter<"Stage"> | number
+    name?: StringFilter<"Stage"> | string
     img_url?: StringFilter<"Stage"> | string
     Score?: ScoreListRelationFilter
   }
 
   export type StageOrderByWithRelationInput = {
     id?: SortOrder
+    name?: SortOrder
     img_url?: SortOrder
     Score?: ScoreOrderByRelationAggregateInput
   }
@@ -4373,12 +4411,14 @@ export namespace Prisma {
     AND?: StageWhereInput | StageWhereInput[]
     OR?: StageWhereInput[]
     NOT?: StageWhereInput | StageWhereInput[]
+    name?: StringFilter<"Stage"> | string
     img_url?: StringFilter<"Stage"> | string
     Score?: ScoreListRelationFilter
   }, "id">
 
   export type StageOrderByWithAggregationInput = {
     id?: SortOrder
+    name?: SortOrder
     img_url?: SortOrder
     _count?: StageCountOrderByAggregateInput
     _avg?: StageAvgOrderByAggregateInput
@@ -4392,6 +4432,7 @@ export namespace Prisma {
     OR?: StageScalarWhereWithAggregatesInput[]
     NOT?: StageScalarWhereWithAggregatesInput | StageScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Stage"> | number
+    name?: StringWithAggregatesFilter<"Stage"> | string
     img_url?: StringWithAggregatesFilter<"Stage"> | string
   }
 
@@ -4401,13 +4442,15 @@ export namespace Prisma {
     NOT?: CharacterWhereInput | CharacterWhereInput[]
     id?: IntFilter<"Character"> | number
     name?: StringFilter<"Character"> | string
-    coordinates?: StringFilter<"Character"> | string
+    x_coordinate?: IntFilter<"Character"> | number
+    y_coordinate?: IntFilter<"Character"> | number
   }
 
   export type CharacterOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    coordinates?: SortOrder
+    x_coordinate?: SortOrder
+    y_coordinate?: SortOrder
   }
 
   export type CharacterWhereUniqueInput = Prisma.AtLeast<{
@@ -4416,13 +4459,15 @@ export namespace Prisma {
     OR?: CharacterWhereInput[]
     NOT?: CharacterWhereInput | CharacterWhereInput[]
     name?: StringFilter<"Character"> | string
-    coordinates?: StringFilter<"Character"> | string
+    x_coordinate?: IntFilter<"Character"> | number
+    y_coordinate?: IntFilter<"Character"> | number
   }, "id">
 
   export type CharacterOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    coordinates?: SortOrder
+    x_coordinate?: SortOrder
+    y_coordinate?: SortOrder
     _count?: CharacterCountOrderByAggregateInput
     _avg?: CharacterAvgOrderByAggregateInput
     _max?: CharacterMaxOrderByAggregateInput
@@ -4436,7 +4481,8 @@ export namespace Prisma {
     NOT?: CharacterScalarWhereWithAggregatesInput | CharacterScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Character"> | number
     name?: StringWithAggregatesFilter<"Character"> | string
-    coordinates?: StringWithAggregatesFilter<"Character"> | string
+    x_coordinate?: IntWithAggregatesFilter<"Character"> | number
+    y_coordinate?: IntWithAggregatesFilter<"Character"> | number
   }
 
   export type ScoreWhereInput = {
@@ -4492,78 +4538,92 @@ export namespace Prisma {
   }
 
   export type StageCreateInput = {
+    name: string
     img_url: string
     Score?: ScoreCreateNestedManyWithoutStageInput
   }
 
   export type StageUncheckedCreateInput = {
     id?: number
+    name: string
     img_url: string
     Score?: ScoreUncheckedCreateNestedManyWithoutStageInput
   }
 
   export type StageUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
     Score?: ScoreUpdateManyWithoutStageNestedInput
   }
 
   export type StageUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
     Score?: ScoreUncheckedUpdateManyWithoutStageNestedInput
   }
 
   export type StageCreateManyInput = {
     id?: number
+    name: string
     img_url: string
   }
 
   export type StageUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
   }
 
   export type StageUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
   }
 
   export type CharacterCreateInput = {
     name: string
-    coordinates: string
+    x_coordinate: number
+    y_coordinate: number
   }
 
   export type CharacterUncheckedCreateInput = {
     id?: number
     name: string
-    coordinates: string
+    x_coordinate: number
+    y_coordinate: number
   }
 
   export type CharacterUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    coordinates?: StringFieldUpdateOperationsInput | string
+    x_coordinate?: IntFieldUpdateOperationsInput | number
+    y_coordinate?: IntFieldUpdateOperationsInput | number
   }
 
   export type CharacterUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    coordinates?: StringFieldUpdateOperationsInput | string
+    x_coordinate?: IntFieldUpdateOperationsInput | number
+    y_coordinate?: IntFieldUpdateOperationsInput | number
   }
 
   export type CharacterCreateManyInput = {
     id?: number
     name: string
-    coordinates: string
+    x_coordinate: number
+    y_coordinate: number
   }
 
   export type CharacterUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
-    coordinates?: StringFieldUpdateOperationsInput | string
+    x_coordinate?: IntFieldUpdateOperationsInput | number
+    y_coordinate?: IntFieldUpdateOperationsInput | number
   }
 
   export type CharacterUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    coordinates?: StringFieldUpdateOperationsInput | string
+    x_coordinate?: IntFieldUpdateOperationsInput | number
+    y_coordinate?: IntFieldUpdateOperationsInput | number
   }
 
   export type ScoreCreateInput = {
@@ -4649,6 +4709,7 @@ export namespace Prisma {
 
   export type StageCountOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     img_url?: SortOrder
   }
 
@@ -4658,11 +4719,13 @@ export namespace Prisma {
 
   export type StageMaxOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     img_url?: SortOrder
   }
 
   export type StageMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     img_url?: SortOrder
   }
 
@@ -4707,27 +4770,34 @@ export namespace Prisma {
   export type CharacterCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    coordinates?: SortOrder
+    x_coordinate?: SortOrder
+    y_coordinate?: SortOrder
   }
 
   export type CharacterAvgOrderByAggregateInput = {
     id?: SortOrder
+    x_coordinate?: SortOrder
+    y_coordinate?: SortOrder
   }
 
   export type CharacterMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    coordinates?: SortOrder
+    x_coordinate?: SortOrder
+    y_coordinate?: SortOrder
   }
 
   export type CharacterMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    coordinates?: SortOrder
+    x_coordinate?: SortOrder
+    y_coordinate?: SortOrder
   }
 
   export type CharacterSumOrderByAggregateInput = {
     id?: SortOrder
+    x_coordinate?: SortOrder
+    y_coordinate?: SortOrder
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -5005,11 +5075,13 @@ export namespace Prisma {
   }
 
   export type StageCreateWithoutScoreInput = {
+    name: string
     img_url: string
   }
 
   export type StageUncheckedCreateWithoutScoreInput = {
     id?: number
+    name: string
     img_url: string
   }
 
@@ -5030,11 +5102,13 @@ export namespace Prisma {
   }
 
   export type StageUpdateWithoutScoreInput = {
+    name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
   }
 
   export type StageUncheckedUpdateWithoutScoreInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
   }
 

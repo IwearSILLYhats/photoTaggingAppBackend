@@ -122,13 +122,15 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.StageScalarFieldEnum = {
   id: 'id',
+  name: 'name',
   img_url: 'img_url'
 };
 
 exports.Prisma.CharacterScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  coordinates: 'coordinates'
+  x_coordinate: 'x_coordinate',
+  y_coordinate: 'y_coordinate'
 };
 
 exports.Prisma.ScoreScalarFieldEnum = {

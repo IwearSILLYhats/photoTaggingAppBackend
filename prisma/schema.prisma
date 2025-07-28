@@ -16,6 +16,7 @@ datasource db {
 
 model Stage {
   id      Int     @id @default(autoincrement())
+  name    String
   img_url String
   Score   Score[]
 }
