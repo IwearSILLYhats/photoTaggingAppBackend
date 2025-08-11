@@ -1052,10 +1052,12 @@ export namespace Prisma {
 
   export type StageCountOutputType = {
     Score: number
+    Character: number
   }
 
   export type StageCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Score?: boolean | StageCountOutputTypeCountScoreArgs
+    Character?: boolean | StageCountOutputTypeCountCharacterArgs
   }
 
   // Custom InputTypes
@@ -1074,6 +1076,13 @@ export namespace Prisma {
    */
   export type StageCountOutputTypeCountScoreArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ScoreWhereInput
+  }
+
+  /**
+   * StageCountOutputType without action
+   */
+  export type StageCountOutputTypeCountCharacterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CharacterWhereInput
   }
 
 
@@ -1264,6 +1273,7 @@ export namespace Prisma {
     name?: boolean
     img_url?: boolean
     Score?: boolean | Stage$ScoreArgs<ExtArgs>
+    Character?: boolean | Stage$CharacterArgs<ExtArgs>
     _count?: boolean | StageCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["stage"]>
 
@@ -1288,6 +1298,7 @@ export namespace Prisma {
   export type StageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "img_url", ExtArgs["result"]["stage"]>
   export type StageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Score?: boolean | Stage$ScoreArgs<ExtArgs>
+    Character?: boolean | Stage$CharacterArgs<ExtArgs>
     _count?: boolean | StageCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type StageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1297,6 +1308,7 @@ export namespace Prisma {
     name: "Stage"
     objects: {
       Score: Prisma.$ScorePayload<ExtArgs>[]
+      Character: Prisma.$CharacterPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1697,6 +1709,7 @@ export namespace Prisma {
   export interface Prisma__StageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Score<T extends Stage$ScoreArgs<ExtArgs> = {}>(args?: Subset<T, Stage$ScoreArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ScorePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Character<T extends Stage$CharacterArgs<ExtArgs> = {}>(args?: Subset<T, Stage$CharacterArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2141,6 +2154,30 @@ export namespace Prisma {
   }
 
   /**
+   * Stage.Character
+   */
+  export type Stage$CharacterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    where?: CharacterWhereInput
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    cursor?: CharacterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CharacterScalarFieldEnum | CharacterScalarFieldEnum[]
+  }
+
+  /**
    * Stage without action
    */
   export type StageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2173,70 +2210,90 @@ export namespace Prisma {
 
   export type CharacterAvgAggregateOutputType = {
     id: number | null
+    stage_id: number | null
     x_coordinate: number | null
     y_coordinate: number | null
+    stageId: number | null
   }
 
   export type CharacterSumAggregateOutputType = {
     id: number | null
+    stage_id: number | null
     x_coordinate: number | null
     y_coordinate: number | null
+    stageId: number | null
   }
 
   export type CharacterMinAggregateOutputType = {
     id: number | null
+    stage_id: number | null
     name: string | null
     x_coordinate: number | null
     y_coordinate: number | null
+    stageId: number | null
   }
 
   export type CharacterMaxAggregateOutputType = {
     id: number | null
+    stage_id: number | null
     name: string | null
     x_coordinate: number | null
     y_coordinate: number | null
+    stageId: number | null
   }
 
   export type CharacterCountAggregateOutputType = {
     id: number
+    stage_id: number
     name: number
     x_coordinate: number
     y_coordinate: number
+    stageId: number
     _all: number
   }
 
 
   export type CharacterAvgAggregateInputType = {
     id?: true
+    stage_id?: true
     x_coordinate?: true
     y_coordinate?: true
+    stageId?: true
   }
 
   export type CharacterSumAggregateInputType = {
     id?: true
+    stage_id?: true
     x_coordinate?: true
     y_coordinate?: true
+    stageId?: true
   }
 
   export type CharacterMinAggregateInputType = {
     id?: true
+    stage_id?: true
     name?: true
     x_coordinate?: true
     y_coordinate?: true
+    stageId?: true
   }
 
   export type CharacterMaxAggregateInputType = {
     id?: true
+    stage_id?: true
     name?: true
     x_coordinate?: true
     y_coordinate?: true
+    stageId?: true
   }
 
   export type CharacterCountAggregateInputType = {
     id?: true
+    stage_id?: true
     name?: true
     x_coordinate?: true
     y_coordinate?: true
+    stageId?: true
     _all?: true
   }
 
@@ -2328,9 +2385,11 @@ export namespace Prisma {
 
   export type CharacterGroupByOutputType = {
     id: number
+    stage_id: number
     name: string
     x_coordinate: number
     y_coordinate: number
+    stageId: number
     _count: CharacterCountAggregateOutputType | null
     _avg: CharacterAvgAggregateOutputType | null
     _sum: CharacterSumAggregateOutputType | null
@@ -2354,42 +2413,66 @@ export namespace Prisma {
 
   export type CharacterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    stage_id?: boolean
     name?: boolean
     x_coordinate?: boolean
     y_coordinate?: boolean
+    stageId?: boolean
+    stage?: boolean | StageDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["character"]>
 
   export type CharacterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    stage_id?: boolean
     name?: boolean
     x_coordinate?: boolean
     y_coordinate?: boolean
+    stageId?: boolean
+    stage?: boolean | StageDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["character"]>
 
   export type CharacterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    stage_id?: boolean
     name?: boolean
     x_coordinate?: boolean
     y_coordinate?: boolean
+    stageId?: boolean
+    stage?: boolean | StageDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["character"]>
 
   export type CharacterSelectScalar = {
     id?: boolean
+    stage_id?: boolean
     name?: boolean
     x_coordinate?: boolean
     y_coordinate?: boolean
+    stageId?: boolean
   }
 
-  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "x_coordinate" | "y_coordinate", ExtArgs["result"]["character"]>
+  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "stage_id" | "name" | "x_coordinate" | "y_coordinate" | "stageId", ExtArgs["result"]["character"]>
+  export type CharacterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    stage?: boolean | StageDefaultArgs<ExtArgs>
+  }
+  export type CharacterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    stage?: boolean | StageDefaultArgs<ExtArgs>
+  }
+  export type CharacterIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    stage?: boolean | StageDefaultArgs<ExtArgs>
+  }
 
   export type $CharacterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Character"
-    objects: {}
+    objects: {
+      stage: Prisma.$StagePayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      stage_id: number
       name: string
       x_coordinate: number
       y_coordinate: number
+      stageId: number
     }, ExtArgs["result"]["character"]>
     composites: {}
   }
@@ -2784,6 +2867,7 @@ export namespace Prisma {
    */
   export interface Prisma__CharacterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    stage<T extends StageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StageDefaultArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2814,9 +2898,11 @@ export namespace Prisma {
    */
   interface CharacterFieldRefs {
     readonly id: FieldRef<"Character", 'Int'>
+    readonly stage_id: FieldRef<"Character", 'Int'>
     readonly name: FieldRef<"Character", 'String'>
     readonly x_coordinate: FieldRef<"Character", 'Int'>
     readonly y_coordinate: FieldRef<"Character", 'Int'>
+    readonly stageId: FieldRef<"Character", 'Int'>
   }
     
 
@@ -2833,6 +2919,10 @@ export namespace Prisma {
      * Omit specific fields from the Character
      */
     omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
     /**
      * Filter, which Character to fetch.
      */
@@ -2852,6 +2942,10 @@ export namespace Prisma {
      */
     omit?: CharacterOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
      * Filter, which Character to fetch.
      */
     where: CharacterWhereUniqueInput
@@ -2869,6 +2963,10 @@ export namespace Prisma {
      * Omit specific fields from the Character
      */
     omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
     /**
      * Filter, which Character to fetch.
      */
@@ -2918,6 +3016,10 @@ export namespace Prisma {
      */
     omit?: CharacterOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
      * Filter, which Character to fetch.
      */
     where?: CharacterWhereInput
@@ -2966,6 +3068,10 @@ export namespace Prisma {
      */
     omit?: CharacterOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
      * Filter, which Characters to fetch.
      */
     where?: CharacterWhereInput
@@ -3009,6 +3115,10 @@ export namespace Prisma {
      */
     omit?: CharacterOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
      * The data needed to create a Character.
      */
     data: XOR<CharacterCreateInput, CharacterUncheckedCreateInput>
@@ -3042,6 +3152,10 @@ export namespace Prisma {
      */
     data: CharacterCreateManyInput | CharacterCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3056,6 +3170,10 @@ export namespace Prisma {
      * Omit specific fields from the Character
      */
     omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
     /**
      * The data needed to update a Character.
      */
@@ -3108,6 +3226,10 @@ export namespace Prisma {
      * Limit how many Characters to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3122,6 +3244,10 @@ export namespace Prisma {
      * Omit specific fields from the Character
      */
     omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
     /**
      * The filter to search for the Character to update in case it exists.
      */
@@ -3148,6 +3274,10 @@ export namespace Prisma {
      * Omit specific fields from the Character
      */
     omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
     /**
      * Filter which Character to delete.
      */
@@ -3180,6 +3310,10 @@ export namespace Prisma {
      * Omit specific fields from the Character
      */
     omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
   }
 
 
@@ -4291,9 +4425,11 @@ export namespace Prisma {
 
   export const CharacterScalarFieldEnum: {
     id: 'id',
+    stage_id: 'stage_id',
     name: 'name',
     x_coordinate: 'x_coordinate',
-    y_coordinate: 'y_coordinate'
+    y_coordinate: 'y_coordinate',
+    stageId: 'stageId'
   };
 
   export type CharacterScalarFieldEnum = (typeof CharacterScalarFieldEnum)[keyof typeof CharacterScalarFieldEnum]
@@ -4397,6 +4533,7 @@ export namespace Prisma {
     name?: StringFilter<"Stage"> | string
     img_url?: StringFilter<"Stage"> | string
     Score?: ScoreListRelationFilter
+    Character?: CharacterListRelationFilter
   }
 
   export type StageOrderByWithRelationInput = {
@@ -4404,6 +4541,7 @@ export namespace Prisma {
     name?: SortOrder
     img_url?: SortOrder
     Score?: ScoreOrderByRelationAggregateInput
+    Character?: CharacterOrderByRelationAggregateInput
   }
 
   export type StageWhereUniqueInput = Prisma.AtLeast<{
@@ -4414,6 +4552,7 @@ export namespace Prisma {
     name?: StringFilter<"Stage"> | string
     img_url?: StringFilter<"Stage"> | string
     Score?: ScoreListRelationFilter
+    Character?: CharacterListRelationFilter
   }, "id">
 
   export type StageOrderByWithAggregationInput = {
@@ -4441,16 +4580,22 @@ export namespace Prisma {
     OR?: CharacterWhereInput[]
     NOT?: CharacterWhereInput | CharacterWhereInput[]
     id?: IntFilter<"Character"> | number
+    stage_id?: IntFilter<"Character"> | number
     name?: StringFilter<"Character"> | string
     x_coordinate?: IntFilter<"Character"> | number
     y_coordinate?: IntFilter<"Character"> | number
+    stageId?: IntFilter<"Character"> | number
+    stage?: XOR<StageScalarRelationFilter, StageWhereInput>
   }
 
   export type CharacterOrderByWithRelationInput = {
     id?: SortOrder
+    stage_id?: SortOrder
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
+    stageId?: SortOrder
+    stage?: StageOrderByWithRelationInput
   }
 
   export type CharacterWhereUniqueInput = Prisma.AtLeast<{
@@ -4458,16 +4603,21 @@ export namespace Prisma {
     AND?: CharacterWhereInput | CharacterWhereInput[]
     OR?: CharacterWhereInput[]
     NOT?: CharacterWhereInput | CharacterWhereInput[]
+    stage_id?: IntFilter<"Character"> | number
     name?: StringFilter<"Character"> | string
     x_coordinate?: IntFilter<"Character"> | number
     y_coordinate?: IntFilter<"Character"> | number
+    stageId?: IntFilter<"Character"> | number
+    stage?: XOR<StageScalarRelationFilter, StageWhereInput>
   }, "id">
 
   export type CharacterOrderByWithAggregationInput = {
     id?: SortOrder
+    stage_id?: SortOrder
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
+    stageId?: SortOrder
     _count?: CharacterCountOrderByAggregateInput
     _avg?: CharacterAvgOrderByAggregateInput
     _max?: CharacterMaxOrderByAggregateInput
@@ -4480,9 +4630,11 @@ export namespace Prisma {
     OR?: CharacterScalarWhereWithAggregatesInput[]
     NOT?: CharacterScalarWhereWithAggregatesInput | CharacterScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Character"> | number
+    stage_id?: IntWithAggregatesFilter<"Character"> | number
     name?: StringWithAggregatesFilter<"Character"> | string
     x_coordinate?: IntWithAggregatesFilter<"Character"> | number
     y_coordinate?: IntWithAggregatesFilter<"Character"> | number
+    stageId?: IntWithAggregatesFilter<"Character"> | number
   }
 
   export type ScoreWhereInput = {
@@ -4541,6 +4693,7 @@ export namespace Prisma {
     name: string
     img_url: string
     Score?: ScoreCreateNestedManyWithoutStageInput
+    Character?: CharacterCreateNestedManyWithoutStageInput
   }
 
   export type StageUncheckedCreateInput = {
@@ -4548,12 +4701,14 @@ export namespace Prisma {
     name: string
     img_url: string
     Score?: ScoreUncheckedCreateNestedManyWithoutStageInput
+    Character?: CharacterUncheckedCreateNestedManyWithoutStageInput
   }
 
   export type StageUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
     Score?: ScoreUpdateManyWithoutStageNestedInput
+    Character?: CharacterUpdateManyWithoutStageNestedInput
   }
 
   export type StageUncheckedUpdateInput = {
@@ -4561,6 +4716,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
     Score?: ScoreUncheckedUpdateManyWithoutStageNestedInput
+    Character?: CharacterUncheckedUpdateManyWithoutStageNestedInput
   }
 
   export type StageCreateManyInput = {
@@ -4581,39 +4737,50 @@ export namespace Prisma {
   }
 
   export type CharacterCreateInput = {
+    stage_id: number
     name: string
     x_coordinate: number
     y_coordinate: number
+    stage: StageCreateNestedOneWithoutCharacterInput
   }
 
   export type CharacterUncheckedCreateInput = {
     id?: number
+    stage_id: number
     name: string
     x_coordinate: number
     y_coordinate: number
+    stageId: number
   }
 
   export type CharacterUpdateInput = {
+    stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     x_coordinate?: IntFieldUpdateOperationsInput | number
     y_coordinate?: IntFieldUpdateOperationsInput | number
+    stage?: StageUpdateOneRequiredWithoutCharacterNestedInput
   }
 
   export type CharacterUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     x_coordinate?: IntFieldUpdateOperationsInput | number
     y_coordinate?: IntFieldUpdateOperationsInput | number
+    stageId?: IntFieldUpdateOperationsInput | number
   }
 
   export type CharacterCreateManyInput = {
     id?: number
+    stage_id: number
     name: string
     x_coordinate: number
     y_coordinate: number
+    stageId: number
   }
 
   export type CharacterUpdateManyMutationInput = {
+    stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     x_coordinate?: IntFieldUpdateOperationsInput | number
     y_coordinate?: IntFieldUpdateOperationsInput | number
@@ -4621,21 +4788,23 @@ export namespace Prisma {
 
   export type CharacterUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     x_coordinate?: IntFieldUpdateOperationsInput | number
     y_coordinate?: IntFieldUpdateOperationsInput | number
+    stageId?: IntFieldUpdateOperationsInput | number
   }
 
   export type ScoreCreateInput = {
     username: string
-    time?: Date | string
+    time: Date | string
     stage: StageCreateNestedOneWithoutScoreInput
   }
 
   export type ScoreUncheckedCreateInput = {
     id?: number
     username: string
-    time?: Date | string
+    time: Date | string
     stage_id: number
   }
 
@@ -4655,7 +4824,7 @@ export namespace Prisma {
   export type ScoreCreateManyInput = {
     id?: number
     username: string
-    time?: Date | string
+    time: Date | string
     stage_id: number
   }
 
@@ -4703,7 +4872,17 @@ export namespace Prisma {
     none?: ScoreWhereInput
   }
 
+  export type CharacterListRelationFilter = {
+    every?: CharacterWhereInput
+    some?: CharacterWhereInput
+    none?: CharacterWhereInput
+  }
+
   export type ScoreOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CharacterOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -4767,37 +4946,52 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StageScalarRelationFilter = {
+    is?: StageWhereInput
+    isNot?: StageWhereInput
+  }
+
   export type CharacterCountOrderByAggregateInput = {
     id?: SortOrder
+    stage_id?: SortOrder
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
+    stageId?: SortOrder
   }
 
   export type CharacterAvgOrderByAggregateInput = {
     id?: SortOrder
+    stage_id?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
+    stageId?: SortOrder
   }
 
   export type CharacterMaxOrderByAggregateInput = {
     id?: SortOrder
+    stage_id?: SortOrder
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
+    stageId?: SortOrder
   }
 
   export type CharacterMinOrderByAggregateInput = {
     id?: SortOrder
+    stage_id?: SortOrder
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
+    stageId?: SortOrder
   }
 
   export type CharacterSumOrderByAggregateInput = {
     id?: SortOrder
+    stage_id?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
+    stageId?: SortOrder
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -4809,11 +5003,6 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type StageScalarRelationFilter = {
-    is?: StageWhereInput
-    isNot?: StageWhereInput
   }
 
   export type ScoreCountOrderByAggregateInput = {
@@ -4868,11 +5057,25 @@ export namespace Prisma {
     connect?: ScoreWhereUniqueInput | ScoreWhereUniqueInput[]
   }
 
+  export type CharacterCreateNestedManyWithoutStageInput = {
+    create?: XOR<CharacterCreateWithoutStageInput, CharacterUncheckedCreateWithoutStageInput> | CharacterCreateWithoutStageInput[] | CharacterUncheckedCreateWithoutStageInput[]
+    connectOrCreate?: CharacterCreateOrConnectWithoutStageInput | CharacterCreateOrConnectWithoutStageInput[]
+    createMany?: CharacterCreateManyStageInputEnvelope
+    connect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+  }
+
   export type ScoreUncheckedCreateNestedManyWithoutStageInput = {
     create?: XOR<ScoreCreateWithoutStageInput, ScoreUncheckedCreateWithoutStageInput> | ScoreCreateWithoutStageInput[] | ScoreUncheckedCreateWithoutStageInput[]
     connectOrCreate?: ScoreCreateOrConnectWithoutStageInput | ScoreCreateOrConnectWithoutStageInput[]
     createMany?: ScoreCreateManyStageInputEnvelope
     connect?: ScoreWhereUniqueInput | ScoreWhereUniqueInput[]
+  }
+
+  export type CharacterUncheckedCreateNestedManyWithoutStageInput = {
+    create?: XOR<CharacterCreateWithoutStageInput, CharacterUncheckedCreateWithoutStageInput> | CharacterCreateWithoutStageInput[] | CharacterUncheckedCreateWithoutStageInput[]
+    connectOrCreate?: CharacterCreateOrConnectWithoutStageInput | CharacterCreateOrConnectWithoutStageInput[]
+    createMany?: CharacterCreateManyStageInputEnvelope
+    connect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -4891,6 +5094,20 @@ export namespace Prisma {
     update?: ScoreUpdateWithWhereUniqueWithoutStageInput | ScoreUpdateWithWhereUniqueWithoutStageInput[]
     updateMany?: ScoreUpdateManyWithWhereWithoutStageInput | ScoreUpdateManyWithWhereWithoutStageInput[]
     deleteMany?: ScoreScalarWhereInput | ScoreScalarWhereInput[]
+  }
+
+  export type CharacterUpdateManyWithoutStageNestedInput = {
+    create?: XOR<CharacterCreateWithoutStageInput, CharacterUncheckedCreateWithoutStageInput> | CharacterCreateWithoutStageInput[] | CharacterUncheckedCreateWithoutStageInput[]
+    connectOrCreate?: CharacterCreateOrConnectWithoutStageInput | CharacterCreateOrConnectWithoutStageInput[]
+    upsert?: CharacterUpsertWithWhereUniqueWithoutStageInput | CharacterUpsertWithWhereUniqueWithoutStageInput[]
+    createMany?: CharacterCreateManyStageInputEnvelope
+    set?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    disconnect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    delete?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    connect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    update?: CharacterUpdateWithWhereUniqueWithoutStageInput | CharacterUpdateWithWhereUniqueWithoutStageInput[]
+    updateMany?: CharacterUpdateManyWithWhereWithoutStageInput | CharacterUpdateManyWithWhereWithoutStageInput[]
+    deleteMany?: CharacterScalarWhereInput | CharacterScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -4913,6 +5130,34 @@ export namespace Prisma {
     update?: ScoreUpdateWithWhereUniqueWithoutStageInput | ScoreUpdateWithWhereUniqueWithoutStageInput[]
     updateMany?: ScoreUpdateManyWithWhereWithoutStageInput | ScoreUpdateManyWithWhereWithoutStageInput[]
     deleteMany?: ScoreScalarWhereInput | ScoreScalarWhereInput[]
+  }
+
+  export type CharacterUncheckedUpdateManyWithoutStageNestedInput = {
+    create?: XOR<CharacterCreateWithoutStageInput, CharacterUncheckedCreateWithoutStageInput> | CharacterCreateWithoutStageInput[] | CharacterUncheckedCreateWithoutStageInput[]
+    connectOrCreate?: CharacterCreateOrConnectWithoutStageInput | CharacterCreateOrConnectWithoutStageInput[]
+    upsert?: CharacterUpsertWithWhereUniqueWithoutStageInput | CharacterUpsertWithWhereUniqueWithoutStageInput[]
+    createMany?: CharacterCreateManyStageInputEnvelope
+    set?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    disconnect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    delete?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    connect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    update?: CharacterUpdateWithWhereUniqueWithoutStageInput | CharacterUpdateWithWhereUniqueWithoutStageInput[]
+    updateMany?: CharacterUpdateManyWithWhereWithoutStageInput | CharacterUpdateManyWithWhereWithoutStageInput[]
+    deleteMany?: CharacterScalarWhereInput | CharacterScalarWhereInput[]
+  }
+
+  export type StageCreateNestedOneWithoutCharacterInput = {
+    create?: XOR<StageCreateWithoutCharacterInput, StageUncheckedCreateWithoutCharacterInput>
+    connectOrCreate?: StageCreateOrConnectWithoutCharacterInput
+    connect?: StageWhereUniqueInput
+  }
+
+  export type StageUpdateOneRequiredWithoutCharacterNestedInput = {
+    create?: XOR<StageCreateWithoutCharacterInput, StageUncheckedCreateWithoutCharacterInput>
+    connectOrCreate?: StageCreateOrConnectWithoutCharacterInput
+    upsert?: StageUpsertWithoutCharacterInput
+    connect?: StageWhereUniqueInput
+    update?: XOR<XOR<StageUpdateToOneWithWhereWithoutCharacterInput, StageUpdateWithoutCharacterInput>, StageUncheckedUpdateWithoutCharacterInput>
   }
 
   export type StageCreateNestedOneWithoutScoreInput = {
@@ -5029,13 +5274,13 @@ export namespace Prisma {
 
   export type ScoreCreateWithoutStageInput = {
     username: string
-    time?: Date | string
+    time: Date | string
   }
 
   export type ScoreUncheckedCreateWithoutStageInput = {
     id?: number
     username: string
-    time?: Date | string
+    time: Date | string
   }
 
   export type ScoreCreateOrConnectWithoutStageInput = {
@@ -5045,6 +5290,31 @@ export namespace Prisma {
 
   export type ScoreCreateManyStageInputEnvelope = {
     data: ScoreCreateManyStageInput | ScoreCreateManyStageInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CharacterCreateWithoutStageInput = {
+    stage_id: number
+    name: string
+    x_coordinate: number
+    y_coordinate: number
+  }
+
+  export type CharacterUncheckedCreateWithoutStageInput = {
+    id?: number
+    stage_id: number
+    name: string
+    x_coordinate: number
+    y_coordinate: number
+  }
+
+  export type CharacterCreateOrConnectWithoutStageInput = {
+    where: CharacterWhereUniqueInput
+    create: XOR<CharacterCreateWithoutStageInput, CharacterUncheckedCreateWithoutStageInput>
+  }
+
+  export type CharacterCreateManyStageInputEnvelope = {
+    data: CharacterCreateManyStageInput | CharacterCreateManyStageInput[]
     skipDuplicates?: boolean
   }
 
@@ -5074,15 +5344,87 @@ export namespace Prisma {
     stage_id?: IntFilter<"Score"> | number
   }
 
+  export type CharacterUpsertWithWhereUniqueWithoutStageInput = {
+    where: CharacterWhereUniqueInput
+    update: XOR<CharacterUpdateWithoutStageInput, CharacterUncheckedUpdateWithoutStageInput>
+    create: XOR<CharacterCreateWithoutStageInput, CharacterUncheckedCreateWithoutStageInput>
+  }
+
+  export type CharacterUpdateWithWhereUniqueWithoutStageInput = {
+    where: CharacterWhereUniqueInput
+    data: XOR<CharacterUpdateWithoutStageInput, CharacterUncheckedUpdateWithoutStageInput>
+  }
+
+  export type CharacterUpdateManyWithWhereWithoutStageInput = {
+    where: CharacterScalarWhereInput
+    data: XOR<CharacterUpdateManyMutationInput, CharacterUncheckedUpdateManyWithoutStageInput>
+  }
+
+  export type CharacterScalarWhereInput = {
+    AND?: CharacterScalarWhereInput | CharacterScalarWhereInput[]
+    OR?: CharacterScalarWhereInput[]
+    NOT?: CharacterScalarWhereInput | CharacterScalarWhereInput[]
+    id?: IntFilter<"Character"> | number
+    stage_id?: IntFilter<"Character"> | number
+    name?: StringFilter<"Character"> | string
+    x_coordinate?: IntFilter<"Character"> | number
+    y_coordinate?: IntFilter<"Character"> | number
+    stageId?: IntFilter<"Character"> | number
+  }
+
+  export type StageCreateWithoutCharacterInput = {
+    name: string
+    img_url: string
+    Score?: ScoreCreateNestedManyWithoutStageInput
+  }
+
+  export type StageUncheckedCreateWithoutCharacterInput = {
+    id?: number
+    name: string
+    img_url: string
+    Score?: ScoreUncheckedCreateNestedManyWithoutStageInput
+  }
+
+  export type StageCreateOrConnectWithoutCharacterInput = {
+    where: StageWhereUniqueInput
+    create: XOR<StageCreateWithoutCharacterInput, StageUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type StageUpsertWithoutCharacterInput = {
+    update: XOR<StageUpdateWithoutCharacterInput, StageUncheckedUpdateWithoutCharacterInput>
+    create: XOR<StageCreateWithoutCharacterInput, StageUncheckedCreateWithoutCharacterInput>
+    where?: StageWhereInput
+  }
+
+  export type StageUpdateToOneWithWhereWithoutCharacterInput = {
+    where?: StageWhereInput
+    data: XOR<StageUpdateWithoutCharacterInput, StageUncheckedUpdateWithoutCharacterInput>
+  }
+
+  export type StageUpdateWithoutCharacterInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    img_url?: StringFieldUpdateOperationsInput | string
+    Score?: ScoreUpdateManyWithoutStageNestedInput
+  }
+
+  export type StageUncheckedUpdateWithoutCharacterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    img_url?: StringFieldUpdateOperationsInput | string
+    Score?: ScoreUncheckedUpdateManyWithoutStageNestedInput
+  }
+
   export type StageCreateWithoutScoreInput = {
     name: string
     img_url: string
+    Character?: CharacterCreateNestedManyWithoutStageInput
   }
 
   export type StageUncheckedCreateWithoutScoreInput = {
     id?: number
     name: string
     img_url: string
+    Character?: CharacterUncheckedCreateNestedManyWithoutStageInput
   }
 
   export type StageCreateOrConnectWithoutScoreInput = {
@@ -5104,18 +5446,28 @@ export namespace Prisma {
   export type StageUpdateWithoutScoreInput = {
     name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    Character?: CharacterUpdateManyWithoutStageNestedInput
   }
 
   export type StageUncheckedUpdateWithoutScoreInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     img_url?: StringFieldUpdateOperationsInput | string
+    Character?: CharacterUncheckedUpdateManyWithoutStageNestedInput
   }
 
   export type ScoreCreateManyStageInput = {
     id?: number
     username: string
-    time?: Date | string
+    time: Date | string
+  }
+
+  export type CharacterCreateManyStageInput = {
+    id?: number
+    stage_id: number
+    name: string
+    x_coordinate: number
+    y_coordinate: number
   }
 
   export type ScoreUpdateWithoutStageInput = {
@@ -5133,6 +5485,29 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     time?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CharacterUpdateWithoutStageInput = {
+    stage_id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x_coordinate?: IntFieldUpdateOperationsInput | number
+    y_coordinate?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CharacterUncheckedUpdateWithoutStageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    stage_id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x_coordinate?: IntFieldUpdateOperationsInput | number
+    y_coordinate?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CharacterUncheckedUpdateManyWithoutStageInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    stage_id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x_coordinate?: IntFieldUpdateOperationsInput | number
+    y_coordinate?: IntFieldUpdateOperationsInput | number
   }
 
 

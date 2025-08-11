@@ -128,9 +128,11 @@ exports.Prisma.StageScalarFieldEnum = {
 
 exports.Prisma.CharacterScalarFieldEnum = {
   id: 'id',
+  stage_id: 'stage_id',
   name: 'name',
   x_coordinate: 'x_coordinate',
-  y_coordinate: 'y_coordinate'
+  y_coordinate: 'y_coordinate',
+  stageId: 'stageId'
 };
 
 exports.Prisma.ScoreScalarFieldEnum = {

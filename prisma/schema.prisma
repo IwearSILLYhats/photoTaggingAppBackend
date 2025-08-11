@@ -15,23 +15,27 @@ datasource db {
 }
 
 model Stage {
-  id      Int     @id @default(autoincrement())
-  name    String
-  img_url String
-  Score   Score[]
+  id        Int         @id @default(autoincrement())
+  name      String
+  img_url   String
+  Score     Score[]
+  Character Character[]
 }
 
 model Character {
   id           Int    @id @default(autoincrement())
+  stage        Stage  @relation(fields: [stageId], references: [id])
+  stage_id     Int
   name         String
   x_coordinate Int
   y_coordinate Int
+  stageId      Int
 }
 
 model Score {
   id       Int      @id @default(autoincrement())
   username String
-  time     DateTime @default(now())
+  time     DateTime
   stage    Stage    @relation(fields: [stage_id], references: [id])
   stage_id Int
 }
