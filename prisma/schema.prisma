@@ -24,12 +24,11 @@ model Stage {
 
 model Character {
   id           Int    @id @default(autoincrement())
-  stage        Stage  @relation(fields: [stageId], references: [id])
+  stage        Stage  @relation(fields: [stage_id], references: [id])
   stage_id     Int
   name         String
-  x_coordinate Int
-  y_coordinate Int
-  stageId      Int
+  x_coordinate Float
+  y_coordinate Float
 }
 
 model Score {

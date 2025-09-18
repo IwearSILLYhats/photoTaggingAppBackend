@@ -2213,7 +2213,6 @@ export namespace Prisma {
     stage_id: number | null
     x_coordinate: number | null
     y_coordinate: number | null
-    stageId: number | null
   }
 
   export type CharacterSumAggregateOutputType = {
@@ -2221,7 +2220,6 @@ export namespace Prisma {
     stage_id: number | null
     x_coordinate: number | null
     y_coordinate: number | null
-    stageId: number | null
   }
 
   export type CharacterMinAggregateOutputType = {
@@ -2230,7 +2228,6 @@ export namespace Prisma {
     name: string | null
     x_coordinate: number | null
     y_coordinate: number | null
-    stageId: number | null
   }
 
   export type CharacterMaxAggregateOutputType = {
@@ -2239,7 +2236,6 @@ export namespace Prisma {
     name: string | null
     x_coordinate: number | null
     y_coordinate: number | null
-    stageId: number | null
   }
 
   export type CharacterCountAggregateOutputType = {
@@ -2248,7 +2244,6 @@ export namespace Prisma {
     name: number
     x_coordinate: number
     y_coordinate: number
-    stageId: number
     _all: number
   }
 
@@ -2258,7 +2253,6 @@ export namespace Prisma {
     stage_id?: true
     x_coordinate?: true
     y_coordinate?: true
-    stageId?: true
   }
 
   export type CharacterSumAggregateInputType = {
@@ -2266,7 +2260,6 @@ export namespace Prisma {
     stage_id?: true
     x_coordinate?: true
     y_coordinate?: true
-    stageId?: true
   }
 
   export type CharacterMinAggregateInputType = {
@@ -2275,7 +2268,6 @@ export namespace Prisma {
     name?: true
     x_coordinate?: true
     y_coordinate?: true
-    stageId?: true
   }
 
   export type CharacterMaxAggregateInputType = {
@@ -2284,7 +2276,6 @@ export namespace Prisma {
     name?: true
     x_coordinate?: true
     y_coordinate?: true
-    stageId?: true
   }
 
   export type CharacterCountAggregateInputType = {
@@ -2293,7 +2284,6 @@ export namespace Prisma {
     name?: true
     x_coordinate?: true
     y_coordinate?: true
-    stageId?: true
     _all?: true
   }
 
@@ -2389,7 +2379,6 @@ export namespace Prisma {
     name: string
     x_coordinate: number
     y_coordinate: number
-    stageId: number
     _count: CharacterCountAggregateOutputType | null
     _avg: CharacterAvgAggregateOutputType | null
     _sum: CharacterSumAggregateOutputType | null
@@ -2417,7 +2406,6 @@ export namespace Prisma {
     name?: boolean
     x_coordinate?: boolean
     y_coordinate?: boolean
-    stageId?: boolean
     stage?: boolean | StageDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["character"]>
 
@@ -2427,7 +2415,6 @@ export namespace Prisma {
     name?: boolean
     x_coordinate?: boolean
     y_coordinate?: boolean
-    stageId?: boolean
     stage?: boolean | StageDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["character"]>
 
@@ -2437,7 +2424,6 @@ export namespace Prisma {
     name?: boolean
     x_coordinate?: boolean
     y_coordinate?: boolean
-    stageId?: boolean
     stage?: boolean | StageDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["character"]>
 
@@ -2447,10 +2433,9 @@ export namespace Prisma {
     name?: boolean
     x_coordinate?: boolean
     y_coordinate?: boolean
-    stageId?: boolean
   }
 
-  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "stage_id" | "name" | "x_coordinate" | "y_coordinate" | "stageId", ExtArgs["result"]["character"]>
+  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "stage_id" | "name" | "x_coordinate" | "y_coordinate", ExtArgs["result"]["character"]>
   export type CharacterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     stage?: boolean | StageDefaultArgs<ExtArgs>
   }
@@ -2472,7 +2457,6 @@ export namespace Prisma {
       name: string
       x_coordinate: number
       y_coordinate: number
-      stageId: number
     }, ExtArgs["result"]["character"]>
     composites: {}
   }
@@ -2900,9 +2884,8 @@ export namespace Prisma {
     readonly id: FieldRef<"Character", 'Int'>
     readonly stage_id: FieldRef<"Character", 'Int'>
     readonly name: FieldRef<"Character", 'String'>
-    readonly x_coordinate: FieldRef<"Character", 'Int'>
-    readonly y_coordinate: FieldRef<"Character", 'Int'>
-    readonly stageId: FieldRef<"Character", 'Int'>
+    readonly x_coordinate: FieldRef<"Character", 'Float'>
+    readonly y_coordinate: FieldRef<"Character", 'Float'>
   }
     
 
@@ -4428,8 +4411,7 @@ export namespace Prisma {
     stage_id: 'stage_id',
     name: 'name',
     x_coordinate: 'x_coordinate',
-    y_coordinate: 'y_coordinate',
-    stageId: 'stageId'
+    y_coordinate: 'y_coordinate'
   };
 
   export type CharacterScalarFieldEnum = (typeof CharacterScalarFieldEnum)[keyof typeof CharacterScalarFieldEnum]
@@ -4495,20 +4477,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime'
-   */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-  /**
-   * Reference to a field of type 'DateTime[]'
-   */
-  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -4519,6 +4487,20 @@ export namespace Prisma {
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
   /**
    * Deep Input Types
@@ -4582,9 +4564,8 @@ export namespace Prisma {
     id?: IntFilter<"Character"> | number
     stage_id?: IntFilter<"Character"> | number
     name?: StringFilter<"Character"> | string
-    x_coordinate?: IntFilter<"Character"> | number
-    y_coordinate?: IntFilter<"Character"> | number
-    stageId?: IntFilter<"Character"> | number
+    x_coordinate?: FloatFilter<"Character"> | number
+    y_coordinate?: FloatFilter<"Character"> | number
     stage?: XOR<StageScalarRelationFilter, StageWhereInput>
   }
 
@@ -4594,7 +4575,6 @@ export namespace Prisma {
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
-    stageId?: SortOrder
     stage?: StageOrderByWithRelationInput
   }
 
@@ -4605,9 +4585,8 @@ export namespace Prisma {
     NOT?: CharacterWhereInput | CharacterWhereInput[]
     stage_id?: IntFilter<"Character"> | number
     name?: StringFilter<"Character"> | string
-    x_coordinate?: IntFilter<"Character"> | number
-    y_coordinate?: IntFilter<"Character"> | number
-    stageId?: IntFilter<"Character"> | number
+    x_coordinate?: FloatFilter<"Character"> | number
+    y_coordinate?: FloatFilter<"Character"> | number
     stage?: XOR<StageScalarRelationFilter, StageWhereInput>
   }, "id">
 
@@ -4617,7 +4596,6 @@ export namespace Prisma {
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
-    stageId?: SortOrder
     _count?: CharacterCountOrderByAggregateInput
     _avg?: CharacterAvgOrderByAggregateInput
     _max?: CharacterMaxOrderByAggregateInput
@@ -4632,9 +4610,8 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Character"> | number
     stage_id?: IntWithAggregatesFilter<"Character"> | number
     name?: StringWithAggregatesFilter<"Character"> | string
-    x_coordinate?: IntWithAggregatesFilter<"Character"> | number
-    y_coordinate?: IntWithAggregatesFilter<"Character"> | number
-    stageId?: IntWithAggregatesFilter<"Character"> | number
+    x_coordinate?: FloatWithAggregatesFilter<"Character"> | number
+    y_coordinate?: FloatWithAggregatesFilter<"Character"> | number
   }
 
   export type ScoreWhereInput = {
@@ -4737,7 +4714,6 @@ export namespace Prisma {
   }
 
   export type CharacterCreateInput = {
-    stage_id: number
     name: string
     x_coordinate: number
     y_coordinate: number
@@ -4750,14 +4726,12 @@ export namespace Prisma {
     name: string
     x_coordinate: number
     y_coordinate: number
-    stageId: number
   }
 
   export type CharacterUpdateInput = {
-    stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    x_coordinate?: IntFieldUpdateOperationsInput | number
-    y_coordinate?: IntFieldUpdateOperationsInput | number
+    x_coordinate?: FloatFieldUpdateOperationsInput | number
+    y_coordinate?: FloatFieldUpdateOperationsInput | number
     stage?: StageUpdateOneRequiredWithoutCharacterNestedInput
   }
 
@@ -4765,9 +4739,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    x_coordinate?: IntFieldUpdateOperationsInput | number
-    y_coordinate?: IntFieldUpdateOperationsInput | number
-    stageId?: IntFieldUpdateOperationsInput | number
+    x_coordinate?: FloatFieldUpdateOperationsInput | number
+    y_coordinate?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CharacterCreateManyInput = {
@@ -4776,23 +4749,20 @@ export namespace Prisma {
     name: string
     x_coordinate: number
     y_coordinate: number
-    stageId: number
   }
 
   export type CharacterUpdateManyMutationInput = {
-    stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    x_coordinate?: IntFieldUpdateOperationsInput | number
-    y_coordinate?: IntFieldUpdateOperationsInput | number
+    x_coordinate?: FloatFieldUpdateOperationsInput | number
+    y_coordinate?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CharacterUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    x_coordinate?: IntFieldUpdateOperationsInput | number
-    y_coordinate?: IntFieldUpdateOperationsInput | number
-    stageId?: IntFieldUpdateOperationsInput | number
+    x_coordinate?: FloatFieldUpdateOperationsInput | number
+    y_coordinate?: FloatFieldUpdateOperationsInput | number
   }
 
   export type ScoreCreateInput = {
@@ -4946,6 +4916,17 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type StageScalarRelationFilter = {
     is?: StageWhereInput
     isNot?: StageWhereInput
@@ -4957,7 +4938,6 @@ export namespace Prisma {
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
-    stageId?: SortOrder
   }
 
   export type CharacterAvgOrderByAggregateInput = {
@@ -4965,7 +4945,6 @@ export namespace Prisma {
     stage_id?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
-    stageId?: SortOrder
   }
 
   export type CharacterMaxOrderByAggregateInput = {
@@ -4974,7 +4953,6 @@ export namespace Prisma {
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
-    stageId?: SortOrder
   }
 
   export type CharacterMinOrderByAggregateInput = {
@@ -4983,7 +4961,6 @@ export namespace Prisma {
     name?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
-    stageId?: SortOrder
   }
 
   export type CharacterSumOrderByAggregateInput = {
@@ -4991,7 +4968,22 @@ export namespace Prisma {
     stage_id?: SortOrder
     x_coordinate?: SortOrder
     y_coordinate?: SortOrder
-    stageId?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -5152,6 +5144,14 @@ export namespace Prisma {
     connect?: StageWhereUniqueInput
   }
 
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type StageUpdateOneRequiredWithoutCharacterNestedInput = {
     create?: XOR<StageCreateWithoutCharacterInput, StageUncheckedCreateWithoutCharacterInput>
     connectOrCreate?: StageCreateOrConnectWithoutCharacterInput
@@ -5247,6 +5247,22 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -5294,7 +5310,6 @@ export namespace Prisma {
   }
 
   export type CharacterCreateWithoutStageInput = {
-    stage_id: number
     name: string
     x_coordinate: number
     y_coordinate: number
@@ -5302,7 +5317,6 @@ export namespace Prisma {
 
   export type CharacterUncheckedCreateWithoutStageInput = {
     id?: number
-    stage_id: number
     name: string
     x_coordinate: number
     y_coordinate: number
@@ -5367,9 +5381,8 @@ export namespace Prisma {
     id?: IntFilter<"Character"> | number
     stage_id?: IntFilter<"Character"> | number
     name?: StringFilter<"Character"> | string
-    x_coordinate?: IntFilter<"Character"> | number
-    y_coordinate?: IntFilter<"Character"> | number
-    stageId?: IntFilter<"Character"> | number
+    x_coordinate?: FloatFilter<"Character"> | number
+    y_coordinate?: FloatFilter<"Character"> | number
   }
 
   export type StageCreateWithoutCharacterInput = {
@@ -5464,7 +5477,6 @@ export namespace Prisma {
 
   export type CharacterCreateManyStageInput = {
     id?: number
-    stage_id: number
     name: string
     x_coordinate: number
     y_coordinate: number
@@ -5488,26 +5500,23 @@ export namespace Prisma {
   }
 
   export type CharacterUpdateWithoutStageInput = {
-    stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    x_coordinate?: IntFieldUpdateOperationsInput | number
-    y_coordinate?: IntFieldUpdateOperationsInput | number
+    x_coordinate?: FloatFieldUpdateOperationsInput | number
+    y_coordinate?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CharacterUncheckedUpdateWithoutStageInput = {
     id?: IntFieldUpdateOperationsInput | number
-    stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    x_coordinate?: IntFieldUpdateOperationsInput | number
-    y_coordinate?: IntFieldUpdateOperationsInput | number
+    x_coordinate?: FloatFieldUpdateOperationsInput | number
+    y_coordinate?: FloatFieldUpdateOperationsInput | number
   }
 
   export type CharacterUncheckedUpdateManyWithoutStageInput = {
     id?: IntFieldUpdateOperationsInput | number
-    stage_id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    x_coordinate?: IntFieldUpdateOperationsInput | number
-    y_coordinate?: IntFieldUpdateOperationsInput | number
+    x_coordinate?: FloatFieldUpdateOperationsInput | number
+    y_coordinate?: FloatFieldUpdateOperationsInput | number
   }
 
 
