@@ -50,7 +50,6 @@ index.get("/stage/:stageid", async (req, res) => {
   }
 });
 index.post("/guess", async (req, res) => {
-  console.log("Guess received", req.body);
   let response;
   const tolerance = 1;
   try {
