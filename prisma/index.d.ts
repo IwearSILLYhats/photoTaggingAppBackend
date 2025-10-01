@@ -3314,25 +3314,27 @@ export namespace Prisma {
 
   export type ScoreAvgAggregateOutputType = {
     id: number | null
+    time: number | null
     stage_id: number | null
   }
 
   export type ScoreSumAggregateOutputType = {
     id: number | null
+    time: number | null
     stage_id: number | null
   }
 
   export type ScoreMinAggregateOutputType = {
     id: number | null
     username: string | null
-    time: Date | null
+    time: number | null
     stage_id: number | null
   }
 
   export type ScoreMaxAggregateOutputType = {
     id: number | null
     username: string | null
-    time: Date | null
+    time: number | null
     stage_id: number | null
   }
 
@@ -3347,11 +3349,13 @@ export namespace Prisma {
 
   export type ScoreAvgAggregateInputType = {
     id?: true
+    time?: true
     stage_id?: true
   }
 
   export type ScoreSumAggregateInputType = {
     id?: true
+    time?: true
     stage_id?: true
   }
 
@@ -3466,7 +3470,7 @@ export namespace Prisma {
   export type ScoreGroupByOutputType = {
     id: number
     username: string
-    time: Date
+    time: number
     stage_id: number
     _count: ScoreCountAggregateOutputType | null
     _avg: ScoreAvgAggregateOutputType | null
@@ -3539,7 +3543,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       username: string
-      time: Date
+      time: number
       stage_id: number
     }, ExtArgs["result"]["score"]>
     composites: {}
@@ -3967,7 +3971,7 @@ export namespace Prisma {
   interface ScoreFieldRefs {
     readonly id: FieldRef<"Score", 'Int'>
     readonly username: FieldRef<"Score", 'String'>
-    readonly time: FieldRef<"Score", 'DateTime'>
+    readonly time: FieldRef<"Score", 'Int'>
     readonly stage_id: FieldRef<"Score", 'Int'>
   }
     
@@ -4488,20 +4492,6 @@ export namespace Prisma {
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
-
-
-  /**
-   * Reference to a field of type 'DateTime'
-   */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-  /**
-   * Reference to a field of type 'DateTime[]'
-   */
-  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
   /**
    * Deep Input Types
    */
@@ -4620,7 +4610,7 @@ export namespace Prisma {
     NOT?: ScoreWhereInput | ScoreWhereInput[]
     id?: IntFilter<"Score"> | number
     username?: StringFilter<"Score"> | string
-    time?: DateTimeFilter<"Score"> | Date | string
+    time?: IntFilter<"Score"> | number
     stage_id?: IntFilter<"Score"> | number
     stage?: XOR<StageScalarRelationFilter, StageWhereInput>
   }
@@ -4639,7 +4629,7 @@ export namespace Prisma {
     OR?: ScoreWhereInput[]
     NOT?: ScoreWhereInput | ScoreWhereInput[]
     username?: StringFilter<"Score"> | string
-    time?: DateTimeFilter<"Score"> | Date | string
+    time?: IntFilter<"Score"> | number
     stage_id?: IntFilter<"Score"> | number
     stage?: XOR<StageScalarRelationFilter, StageWhereInput>
   }, "id">
@@ -4662,7 +4652,7 @@ export namespace Prisma {
     NOT?: ScoreScalarWhereWithAggregatesInput | ScoreScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Score"> | number
     username?: StringWithAggregatesFilter<"Score"> | string
-    time?: DateTimeWithAggregatesFilter<"Score"> | Date | string
+    time?: IntWithAggregatesFilter<"Score"> | number
     stage_id?: IntWithAggregatesFilter<"Score"> | number
   }
 
@@ -4767,46 +4757,46 @@ export namespace Prisma {
 
   export type ScoreCreateInput = {
     username: string
-    time: Date | string
+    time: number
     stage: StageCreateNestedOneWithoutScoreInput
   }
 
   export type ScoreUncheckedCreateInput = {
     id?: number
     username: string
-    time: Date | string
+    time: number
     stage_id: number
   }
 
   export type ScoreUpdateInput = {
     username?: StringFieldUpdateOperationsInput | string
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    time?: IntFieldUpdateOperationsInput | number
     stage?: StageUpdateOneRequiredWithoutScoreNestedInput
   }
 
   export type ScoreUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    time?: IntFieldUpdateOperationsInput | number
     stage_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type ScoreCreateManyInput = {
     id?: number
     username: string
-    time: Date | string
+    time: number
     stage_id: number
   }
 
   export type ScoreUpdateManyMutationInput = {
     username?: StringFieldUpdateOperationsInput | string
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    time?: IntFieldUpdateOperationsInput | number
   }
 
   export type ScoreUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    time?: IntFieldUpdateOperationsInput | number
     stage_id?: IntFieldUpdateOperationsInput | number
   }
 
@@ -4986,17 +4976,6 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type ScoreCountOrderByAggregateInput = {
     id?: SortOrder
     username?: SortOrder
@@ -5006,6 +4985,7 @@ export namespace Prisma {
 
   export type ScoreAvgOrderByAggregateInput = {
     id?: SortOrder
+    time?: SortOrder
     stage_id?: SortOrder
   }
 
@@ -5025,21 +5005,8 @@ export namespace Prisma {
 
   export type ScoreSumOrderByAggregateInput = {
     id?: SortOrder
+    time?: SortOrder
     stage_id?: SortOrder
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type ScoreCreateNestedManyWithoutStageInput = {
@@ -5166,10 +5133,6 @@ export namespace Prisma {
     connect?: StageWhereUniqueInput
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
   export type StageUpdateOneRequiredWithoutScoreNestedInput = {
     create?: XOR<StageCreateWithoutScoreInput, StageUncheckedCreateWithoutScoreInput>
     connectOrCreate?: StageCreateOrConnectWithoutScoreInput
@@ -5263,40 +5226,15 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type ScoreCreateWithoutStageInput = {
     username: string
-    time: Date | string
+    time: number
   }
 
   export type ScoreUncheckedCreateWithoutStageInput = {
     id?: number
     username: string
-    time: Date | string
+    time: number
   }
 
   export type ScoreCreateOrConnectWithoutStageInput = {
@@ -5354,7 +5292,7 @@ export namespace Prisma {
     NOT?: ScoreScalarWhereInput | ScoreScalarWhereInput[]
     id?: IntFilter<"Score"> | number
     username?: StringFilter<"Score"> | string
-    time?: DateTimeFilter<"Score"> | Date | string
+    time?: IntFilter<"Score"> | number
     stage_id?: IntFilter<"Score"> | number
   }
 
@@ -5472,7 +5410,7 @@ export namespace Prisma {
   export type ScoreCreateManyStageInput = {
     id?: number
     username: string
-    time: Date | string
+    time: number
   }
 
   export type CharacterCreateManyStageInput = {
@@ -5484,19 +5422,19 @@ export namespace Prisma {
 
   export type ScoreUpdateWithoutStageInput = {
     username?: StringFieldUpdateOperationsInput | string
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    time?: IntFieldUpdateOperationsInput | number
   }
 
   export type ScoreUncheckedUpdateWithoutStageInput = {
     id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    time?: IntFieldUpdateOperationsInput | number
   }
 
   export type ScoreUncheckedUpdateManyWithoutStageInput = {
     id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
-    time?: DateTimeFieldUpdateOperationsInput | Date | string
+    time?: IntFieldUpdateOperationsInput | number
   }
 
   export type CharacterUpdateWithoutStageInput = {

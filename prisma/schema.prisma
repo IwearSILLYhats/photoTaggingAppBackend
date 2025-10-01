@@ -32,9 +32,9 @@ model Character {
 }
 
 model Score {
-  id       Int      @id @default(autoincrement())
+  id       Int    @id @default(autoincrement())
   username String
-  time     DateTime
-  stage    Stage    @relation(fields: [stage_id], references: [id])
+  time     Int
+  stage    Stage  @relation(fields: [stage_id], references: [id])
   stage_id Int
 }
